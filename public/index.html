@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SabioADV Webhook Receiver</title>
+    <script>
+        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        .status {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #10b981;
+            color: white;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .endpoint {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            word-break: break-all;
+            margin: 20px 0;
+        }
+        .info {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 SabioADV Webhook Receiver</h1>
+        <span class="status">✓ Online</span>
+        
+        <p>Este é um receptor de webhooks da plataforma SabioADV, hospedado no Vercel como uma função serverless.</p>
+        
+        <h2>Endpoint do Webhook</h2>
+        <div class="endpoint">
+            POST <span id="webhook-url">/api/webhook</span>
+        </div>
+        
+        <div class="info">
+            <strong>ℹ️ Informação:</strong> Este endpoint aceita requisições POST com eventos da plataforma SabioADV.
+        </div>
+        
+        <h2>Eventos Suportados</h2>
+        <ul>
+            <li><strong>contact_created</strong> - Novo contato criado</li>
+            <li><strong>message_inbound</strong> - Mensagem recebida</li>
+            <li><strong>message_outbound</strong> - Mensagem enviada</li>
+            <li><strong>message_status</strong> - Atualização de status de mensagem</li>
+        </ul>
+        
+        <div class="footer">
+            <p>Powered by <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> | Vercel Speed Insights Enabled ⚡</p>
+        </div>
+    </div>
+    
+    <script>
+        // Update webhook URL with current domain
+        if (window.location.hostname !== 'localhost') {
+            document.getElementById('webhook-url').textContent = 
+                window.location.origin + '/api/webhook';
+        }
+    </script>
+</body>
+</html>
